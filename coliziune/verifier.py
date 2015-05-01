@@ -1,8 +1,11 @@
 def verify(n, m, b, first, second):
     s1, s2 = 0, 0
+    if first == second:
+        return False
     for i in range(len(first)):
         s1 += (int(first[i]) + 1) * b ** (n-i)
         s2 += (int(second[i]) + 1) * b ** (n-i)
+    print(s1, s2)
     return s1 % m == s2 % m
 
 with open('coliziune.in') as fin, open('coliziune.out') as fout:
