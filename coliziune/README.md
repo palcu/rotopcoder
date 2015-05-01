@@ -6,13 +6,15 @@
 scrie în Latex funcția
 ```
 
+
 ## Date de intrare
 
-Pe prima linie va fi un număr T, care reprezintă numărul de teste. Pe următoarele T linii, se vor afla 3 numere, A, B și N, care reprezintă variabilele din formulă.
+Pe prima linie va fi un număr T, care reprezintă numărul de teste. Pe următoarele T linii, se vor afla 2 numere, A, B, care reprezintă variabilele din formulă.
 
 ## Date de ieșire
 
 Vor fi T linii, cu cele 2 numere scrise în cod binar și separate prin spațiu.
+Lungimea unui string A nu trebuie sa depaseasca lungimea de 10 ^ 6 (se pot afisa siruri de lungime variabila)
 
 ## Fișier de intrare
 
