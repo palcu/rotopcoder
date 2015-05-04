@@ -66,7 +66,7 @@ int bfs(pair<int,int> s, pair<int,int> d,
 }
 
 int main() {
-    ifstream cin("harta2.in");
+    ifstream cin("harta.in");
     ofstream cout("harta.out");
     int N, M, K;
     const string ranks = "23456789tjqka";

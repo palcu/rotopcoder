@@ -55,4 +55,4 @@ Explicații
 trecând prin fiecare culoare o data.
 În al doilea exemplu, spiritul ajunge la destinație în 8 pași
 drumul este (4,1) -> (1, 1) -> (2, 1) -> (3, 1) -> (3, 2) -> (3, 3)
-(3, 2) -> (3, 1) -> (4, 1)
+-> (3, 2) -> (3, 1) -> (4, 1)
