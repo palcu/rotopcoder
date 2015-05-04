@@ -1,5 +1,4 @@
 
-
 class Verifier(object):
 
     def __init__(self, m, b):
