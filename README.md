@@ -4,14 +4,16 @@
 
 - [x] brut
 - [x] enunt
-- [ ] varianta medie
-- [ ] varianta perfecta
+- [x] varianta medie
+- [x] varianta perfecta
 - [x] evaluator custom in Python
 - [ ] evaluator custom in C++
 - [ ] teste
 
 ## telina
 
-- [x] solutie
-- [x] enunt
+- [x] solutie Alex
+- [x] solutie Dragos
+- [x] brut
+- [ ] enunt
 - [ ] teste
