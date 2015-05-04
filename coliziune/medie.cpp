@@ -1,3 +1,10 @@
+/* Author: Rotaru Dragos Alin
+ * Expected score: 60p
+ * O(sqrt(N)) time
+ * O(sqrt(N)) memory
+ * */
+
+
 #include <bits/stdc++.h>
 #define ll long long
 
