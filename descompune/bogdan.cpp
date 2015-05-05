@@ -65,12 +65,12 @@ void solve() {
 void write() {
   ofstream fout("descompune.out");
   if (minCost == INF) {
-		fout << "-1\n";
+    fout << "-1\n";
   } else {
-		for (int i = words.size() - 1; i >= 0; --i) {
-			fout << words[i] << " ";
-		}
-		fout << "\n" << minCost << "\n";
+    for (int i = words.size() - 1; i >= 0; --i) {
+      fout << words[i] << " ";
+    }
+    fout << "\n" << minCost << "\n";
   }
 }
 
