@@ -1,7 +1,7 @@
 /*
-	Bogdan Tirca
-	Problema Descompune
-	Complexitate: O(PROP_LEN * WORD_LEN^2 * log(N))
+  Bogdan Tirca
+  Problema Descompune
+  Complexitate: O(PROP_LEN * WORD_LEN^2 * log(N))
 */
 #include <iostream>
 #include <fstream>
