@@ -35,9 +35,21 @@ void read() {
   }
 }
 
+void write() {
+  ofstream fout("descompune.out");
+  if (minCost == INF) {
+    fout << "-1\n";
+  } else {
+    for (int i = words.size() - 1; i >= 0; --i) {
+      fout << words[i] << " ";
+    }
+    fout << "\n" << minCost << "\n";
+  }
+}
+
 void solve() {
   string word;
-  map<string,int>::iterator it;
+  map<string, int>::iterator it;
   for (int right = 0; right < prop.length(); ++right) {
     dp[right + 1] = INF;
     for (int left = max(0, right - WORD_LEN); left <= right; ++left) {
@@ -50,6 +62,7 @@ void solve() {
     }
     word.clear();
   }
+
   // Reconstituie solutia de cost minim
   minCost = dp[prop.length()];
   if (minCost != INF) {
@@ -59,18 +72,6 @@ void solve() {
       right = left;
     }
     words.push_back(prop.substr(0, right));
-  }
-}
-
-void write() {
-  ofstream fout("descompune.out");
-  if (minCost == INF) {
-    fout << "-1\n";
-  } else {
-    for (int i = words.size() - 1; i >= 0; --i) {
-      fout << words[i] << " ";
-    }
-    fout << "\n" << minCost << "\n";
   }
 }
 

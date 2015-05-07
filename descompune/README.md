@@ -4,7 +4,7 @@ Se da un dictionar de cuvinte si un sir de caractere ce reprezinta o propozitie 
 
 #Date de intrare
 
-Pe prima linia se va afla propozitia lipsita de spatii. Pe linia a 2-a va fi un numar N, ce reprezinta numarul de cuvinte din dictionar urmat de N linii astfel:  linia i + 2 contine un cuvant CUV(i) fara spatii urmat de un numar COST(i) ce reprezinta costul asociat cuvantului i.
+Pe prima linia se va afla un sir de caractere fara spatii ce reprezinta propozitia care va trebui descompusa. Pe linia a 2-a va fi un numar N, ce reprezinta numarul de cuvinte din dictionar urmat de N linii astfel:  linia i + 2 contine un cuvant CUV(i) fara spatii urmat de un numar COST(i) ce reprezinta costul asociat cuvantului i.
 
 #Date de iesire
 Pe prima linie se va afisa o descompunere valida a propozitiei folosind cuvintele din dictionar.
