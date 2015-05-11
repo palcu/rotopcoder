@@ -1,0 +1,51 @@
+\begin{problem}{Coliziune}
+{coliziune.in}{coliziune.out}
+{2 secunde} {4 megabytes}{}
+
+Agen\c{t}ia de securitate na\c{t}ional\u{a} urm\u{a}re\c{s}te \^{i}ndeaproape concursul RoTopCoder. Aceasta a descoperit c\u{a} \^{i}n cadrul concursului se afl\u{a} concuren\c{t}i care au reu\c{s}it s\u{a} identifice un algoritm eficient pentru determinarea coliziunilor unei func\c{t}ii $\mathcal{H}$.
+O coliziune reprezint\u{a} $2$ valori $x, y$ pentru care $\mathcal{H}(x) = \mathcal{H}(y)$.
+
+Este un lucru binecunoscut \^{i}n criptologie (\c{s}tiin\c{t}\u{a} ce se ocup\u{a} cu studiul codurilor) c\u{a} aceast\u{a} problem\u{a} este una dificil\u{a} (pentru o func\c{t}ie $\mathcal{H}$ bine aleas\u{a}).
+
+Fie o func\c{t}ie $\mathcal{H}$ ce primeste ca date intrare \c{s}iruri de lungime variabil\u{a} contin\^{a}nd doar cifre de 0 \c{s}i 1 (\c{s}ir binar). Consider\u{a}m un \c{s}ir binar $S$ de lungime $N$ pentru care primul caracter se afl\u{a} pe pozi\c{t}ia $1$ (numerotarea cifrelor incepe de la $1$).
+
+$\mathcal{H}$ este calculat\u{a} \^{i}n felul urm\u{a}tor:
+\begin{equation}
+\mathcal{H}(S) = (\displaystyle\sum_{i = 1}^{N}{(S(i) + 1) B ^{N - i}}) \mod M
+\end{equation}
+unde cu $x \mod M$ am notat restul \^{i}mp\u{a}r\c{t}irii lui $x$ la $M$.
+
+D\^{a}ndu-se $2$ numere naturale $B$ \c{s}i $M$, se cere sa g\u{a}si\c{t}i $2$ \c{s}iruri binare diferite $x, y$, astfel \^{i}nc\^{a}t $\mathcal{H}(x) = \mathcal{H}(y)$.
+
+\InputFile
+
+\^{I}n fi\c{s}ierul de intrare $coliziune.in$ pe prima linie se vor afla $2$ numere întregi $M$ si $B$ (cu semnifica\c{t}ia descris\u{a} \^{i}n enun\c{t}) separate prin spa\c{t}iu. ($2 \le B \le M-2$, $4 \le M \le 10^{14}$)
+
+\OutputFile
+
+În fişierul de ie\c{s}ire $coliziune.out$ se vor afla $2$ \c{s}iruri binare $x, y$ separate printr-un spa\c{t}iu astfel \^{i}nc\^a{t} $\mathcal{H}(x) = \mathcal{H}(y)$.
+
+\Examples
+
+\begin{example}
+\exmp{
+2 1
+1 2
+}{%
+1
+}%
+\exmp{
+3 3
+1 2 3
+}{%
+0
+}%
+\end{example}
+
+\Explanations
+
+In the first example, we print $1$.
+
+In the second example, after thinking for a while, we are able to print $0$.
+
+\end{problem}
