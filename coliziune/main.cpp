@@ -125,7 +125,7 @@ int main() {
   ifstream fin("coliziune.in");
   ofstream fout("coliziune.out");
   srand(time(NULL));
-  int T; fin >> T;
+  int T; T = 1;
 
   assert (1 <= T && T <= 10);
 
