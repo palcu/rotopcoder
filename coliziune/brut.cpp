@@ -37,8 +37,9 @@ int get_value(int a, int b, int n, int modulo) {
 }
 
 void solve() {
-    int n, m, b;
-    fin >> n >> m >> b;
+    int m, b;
+    fin >> m >> b;
+    int n = 10;
 
     for (int i=0; i<powers2[n]; i++) {
         int value = get_value(i, b, n, m) % m;

@@ -32,7 +32,7 @@ class Verifier(object):
         return s1 % m == s2 % m
 
 with open('coliziune.in') as fin, open('coliziune.out') as fout:
-    input_lines = fin.readlines()[1:]
+    input_lines = fin.readlines()
     output_lines = fout.readlines()
     for line_number in range(len(input_lines)):
         m, b = [int(x) for x in input_lines[line_number].strip().split()]

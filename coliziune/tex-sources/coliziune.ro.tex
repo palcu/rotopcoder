@@ -1,6 +1,6 @@
 \begin{problem}{Coliziune}
 {coliziune.in}{coliziune.out}
-{2 secunde} {4 megabytes}{}
+{5 secunde} {4 megabytes}{}
 
 Agen\c{t}ia de securitate na\c{t}ional\u{a} urm\u{a}re\c{s}te \^{i}ndeaproape concursul RoTopCoder. Aceasta a descoperit c\u{a} \^{i}n cadrul concursului se afl\u{a} concuren\c{t}i care au reu\c{s}it s\u{a} identifice un algoritm eficient pentru determinarea coliziunilor unei func\c{t}ii $\mathcal{H}$.
 O coliziune reprezint\u{a} $2$ valori $x, y$ pentru care $\mathcal{H}(x) = \mathcal{H}(y)$.
@@ -25,27 +25,27 @@ D\^{a}ndu-se $2$ numere naturale $B$ \c{s}i $M$, se cere sa g\u{a}si\c{t}i $2$ \
 
 În fişierul de ie\c{s}ire $coliziune.out$ se vor afla $2$ \c{s}iruri binare $x, y$ separate printr-un spa\c{t}iu astfel \^{i}nc\^a{t} $\mathcal{H}(x) = \mathcal{H}(y)$.
 
+\Note
+
+Dac\u{a} sunt mai multe solu\c{t}ii atunci pute\c{t}i afi\c{s}a oricare dintre ele at\^{a}t timp c\^{a}t lungimea \c{s}irului $x$, respectiv lungimea lui $y$ nu dep\u{a}\c{s}e\c{s}te $10^6$.
+
 \Examples
 
 \begin{example}
 \exmp{
-2 1
-1 2
+10 3
 }{%
-1
+11000000 01101110010
 }%
 \exmp{
-3 3
-1 2 3
+4 2
 }{%
-0
+1100 1110
 }%
 \end{example}
 
 \Explanations
 
-In the first example, we print $1$.
-
-In the second example, after thinking for a while, we are able to print $0$.
+Se observ\u{a} c\u{a} pentru cel de-al $2$-lea exemplu $\mathcal{H}(1100) = 2$ \c{s}i $\mathcal{H}(1110) = 2$. Deci am g\u{a}sit $2$ \c{s}iruri binare diferite $1100$, $1110$ pentru care func\c{t}ia \^{i}ntoarce acelea\c{s}i rezultate.
 
 \end{problem}
