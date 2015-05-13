@@ -7,7 +7,7 @@
 - [x] varianta medie
 - [x] varianta perfecta
 - [x] evaluator custom in Python
-- [ ] evaluator custom in C++
+- [x] evaluator custom in C++
 - [ ] teste
 
 ## telina
@@ -15,5 +15,5 @@
 - [x] solutie Alex
 - [x] solutie Dragos
 - [x] brut
-- [ ] enunt
+- [x] enunt
 - [ ] teste
