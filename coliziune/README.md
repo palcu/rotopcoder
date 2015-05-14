@@ -9,7 +9,7 @@ scrie în Latex funcția
 
 ## Date de intrare
 
-Pe prima linie va fi un număr T, care reprezintă numărul de teste. Pe următoarele T linii, se vor afla 2 numere, A, B, care reprezintă variabilele din formulă.
+Pe prima linie va fi un număr T, care reprezintă numărul de teste. Pe următoarele T linii, se vor afla 2 numere, M, B, care reprezintă variabilele din formulă.
 
 ## Date de ieșire
 

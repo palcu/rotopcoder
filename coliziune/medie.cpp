@@ -1,3 +1,10 @@
+/* Author: Rotaru Dragos Alin
+ * Expected score: 60p
+ * O(sqrt(N)) time
+ * O(sqrt(N)) memory
+ * */
+
+
 #include <bits/stdc++.h>
 #define ll long long
 
@@ -5,11 +12,11 @@ using namespace std;
 
 class Task {
 
-  int nbits, modulus, base;
+  int nbits;
+  ll modulus, base;
   const int kBits;
   public:
-    Task(int _m, int _b): kBits(5)
-    {
+    Task(ll _m, ll _b): kBits(55) {
       modulus = _m;
       base = _b;
     };
@@ -18,7 +25,7 @@ class Task {
       string ret = "";
 
       for (int i = 0; i < kBits; ++i) {
-        int b = (val & (1LL << i));
+        ll b = (val & (1LL << i));
         if (b > 0) {
           ret += "1";
         } else {
@@ -30,26 +37,28 @@ class Task {
     pair <string, string> solve() {
       map<ll, ll> cache;
 
-      int sqr = sqrt(modulus);
-      for (int iter = 0; iter < 100; ++iter) {
-        cache.clear();
-        for (int i = 0; i < sqr; ++i) {
-          vector <int> v(kBits);
-          ll x = 0;
-          for (int k = 0; k < kBits; ++k) {
-            v[k] = rand() % 2;
-            x = x * 2 + v[k];
-          }
-          ll val = get_hash(v);
-          if (cache.find(val) != cache.end()) {
-            if (cache[val] != x) {
-              cerr << val << "\n";
-              return make_pair(convert_to_bin(cache[val]), convert_to_bin(x));
-            }
-          } else {
-            cache[val] = x;
-          }
+      while(1) {
+
+        ll preimage = 0;
+        ll pow2 = 1;
+
+        vector <int> arg(kBits);
+
+        for (int k = 0; k < kBits; ++k) {
+          arg[k] = rand() % 2;
+          preimage = preimage + pow2 * arg[k];
+          pow2 *= 2;
         }
+
+        ll image = get_hash(arg);
+        if (cache.find(image) != cache.end()) {
+          if (cache[image] == preimage) {
+            cerr << "oooops, good luck in finding another one\n";
+            continue;
+          }
+          return make_pair(convert_to_bin(cache[image]), convert_to_bin(preimage));
+        }
+        cache[image] = preimage;
       }
       return make_pair("fail", "fail");
     }
@@ -69,14 +78,14 @@ int main() {
   ifstream fin("coliziune.in");
   ofstream fout("coliziune.out");
   srand(time(NULL));
-  int T; fin >> T;
+  int T; T = 1;
 
   assert (1 <= T && T <= 10);
 
   while(T--) {
-    int B, M; fin >> M >> B;
+    ll B, M; fin >> M >> B;
 
-    assert(4 <= M && M <= 1e7);
+    assert(4 <= M && M <= 1e14);
     assert(2 <= B && B <= M - 2);
 
     Task TT(M, B);

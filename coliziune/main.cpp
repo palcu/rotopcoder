@@ -1,144 +1,145 @@
-/*
- * Dragos Alin Rotaru - Solutie Oficiala - Birthday Paradox
- *
-*/
+/* Author: Rotaru Dragos Alin
+ * Expected score: 100p
+ * O(sqrt(N)) time
+ * O(1) memory
+ * */
 
 
 #include <bits/stdc++.h>
 #define ll long long
 
 using namespace std;
-int kBits;
-ll BPowers[100];
 
+class Task {
 
-string debug_vector(vector <int> v) {
-  string temp = "";
-  for (int i = 0; i < kBits; ++i) {
-    if (v[i] == 0) {
-      temp += "0";
-    } else {
-      temp += "1";
+  int nbits;
+  ll modulus, base;
+  const int kBits;
+  public:
+    Task(ll _m, ll _b): kBits(55) {
+      modulus = _m;
+      base = _b;
+    };
+
+    string convert_to_bin(ll val) {
+      string ret = "";
+
+      for (int i = 0; i < kBits; ++i) {
+        ll b = (val & (1LL << i));
+        if (b > 0) {
+          ret += "1";
+        } else {
+          ret += "0";
+        }
+      }
+      return ret;
     }
-  }
-  return temp;
-}
-inline vector<int> get_bits(ll val) {
-  vector <int> answer(kBits, 0);
-  for (int i = 0; i < kBits; ++i) {
-    if ( ((1LL << i) & val) > 0 ) {
-      answer[i] = 1;
-    } else {
-      answer[i] = 0;
+    string convert_to_binv(const vector<int>&arg) {
+      string ret = "";
+      for (int i = 0; i < kBits; ++i) {
+        if (arg[i] == 1) {
+          ret += "1";
+        } else {
+          ret += "0";
+        }
+      }
+      return ret;
     }
-  }
-  return answer;
-}
-inline vector<int> get_hash(vector<int>A, int M) {
-  ll h = 0;
-  int N = A.size();
-  for (int i = 0; i < kBits; ++i) {
-    h = (h + ((A[i] + 1) * BPowers[N - i + 1]) % M) % M;
-  }
-  cerr << "value : " << h << "\n";
-  vector<int> res = get_bits(h);
-  return res;
-}
+    pair <string, string> cycle_recover(const vector <int> &arg, const vector<int>& meet_point) {
 
-bool is_equal(vector <int> A, vector <int> B) {
-  if (A.size() != B.size()) {
-    return 0;
-  }
-  for (size_t i = 0; i < A.size(); ++i) {
-    if (A[i] != B[i]) {
-      return 0;
+      vector <int> p1(arg);
+      vector <int> p2(meet_point);
+      while(1) {
+        vector<int> np1 = get_hashv(p1);
+        vector<int> np2 = get_hashv(p2);
+
+        if (np1 == np2) {
+          return make_pair(convert_to_binv(p1), convert_to_binv(p2));
+        }
+        p1 = np1;
+        p2 = np2;
+
+      }
     }
-  }
-  return 1;
-}
+    pair <string, string> solve() {
 
-pair <string, string> build_sol(vector <int> A, vector <int> B) {
-  string sA = "", sB = "";
-  for (int i = 0; i < kBits; ++i) {
-    sA += (char)(A[i] + '0');
-    sB += (char)(B[i] + '0');
-  }
-  return make_pair(sA, sB);
-}
-pair <string, string> chain(vector <int> root, int steps, int val_mod) {
+      for (int iter = 0; iter < 10; ++iter) {
+        //every time we succeed with at least 0.5
+        //0.5 ^ 10 is very unlikely to fail
+        vector <int> arg(kBits);
+        for (int k = 0; k < kBits; ++k) {
+          arg[k] = rand() % 2;
+        }
 
-  vector<int> p1 = root;
-  vector<int> p2 = root;
+        //now we have the start in arg[]
+        vector <int> p1 = arg;
+        vector <int> p2 = arg;
+        int cur_iter = 0;
 
-  for (int i = 0; i < steps; ++i) {
-    vector <int> forward1 = get_hash(p1, val_mod);
-    vector <int> temp = get_hash(p2, val_mod);
-    vector <int> forward2 = get_hash(temp, val_mod);
+        while(cur_iter < 1e7) {
+          cur_iter = cur_iter + 1;
+          vector <int> np1 = get_hashv(p1);
+          vector <int> np2 = get_hashv(get_hashv(p2));
 
-    //cerr << debug_vector(forward1) << " " << debug_vector(forward2) << "\n";
-    //cerr << "from : " << debug_vector(p1) << " " << debug_vector(temp) << "\n";
-    if (is_equal(forward1, forward2)) {
-      return build_sol(p1, temp);
+          //cerr << "hash(" << convert_to_binv(p1) << ")" << convert_to_binv(np1) << "\n";
+          //cerr << "hash(hash(" << convert_to_binv(get_hashv(p2)) << "))" << convert_to_binv(np2) << "\n";
+          if (np1 == np2) {
+            //cerr << "found a cycle\n";
+            //cerr << "now founding the collision\n";
+            return cycle_recover(arg, np1);
+          }
+          p1 = np1;
+          p2 = np2;
+        }
+      }
+
+      return make_pair("fail", "fail");
     }
-    for (int i = 0; i < kBits; ++i) {
-      p1[i] = forward1[i];
-      p2[i] = forward2[i];
-    }
-  }
-  return make_pair("fail", "fail");
-}
-pair <string, string> solve(int N, int B, int M) {
+    ll get_hash(const vector <int>& v) {
+      ll val = 0;
+      ll curBase = 1;
 
-  ll cur_power = 1;
-  for (int i = 0; i <= N; ++i) {
-    if (i >= N - kBits) {
-      BPowers[i - (N - kBits)] = cur_power;
+      for (int i = 0; i < kBits; ++i) {
+        val = (val + 1LL * (v[i] + 1) * curBase) % modulus;
+        curBase = (curBase * base) % modulus;
+      }
+      return val;
     }
-    cur_power = (cur_power * B) % M;
-  }
-  vector<int> vec{0,0};
-  chain(vector<int>{0,0}, 4, M);
-  cerr << "debug: " << debug_vector(get_hash(vec, M));
-  cerr << "debug : " << debug_vector(get_hash(get_hash(vec, M), M));
+    vector <int> get_hashv(const vector <int>& v) {
+      ll val = get_hash(v);
 
-  for (int iter = 0; iter < 1000; ++iter) {
-    vector <int> v(kBits, 0);
-    for (int i = 0; i < kBits; ++i) {
-      v[i] = rand() % 2;
+      vector <int> ret(kBits);
+      for (int i = 0; i < kBits; ++i) {
+        ll b = (val & (1LL << i));
+        if (b > 0) {
+          ret[i] = 1;
+        } else {
+          ret[i] = 0;
+        }
+      }
+      return ret;
     }
 
-    vector<int> p1 = v;
-    vector<int> p2 = v;
-
-    pair <string, string> collision = chain(v, 10000, M);
-    if (collision.first == "fail") {
-      continue;
-    } else {
-      return collision;
-    }
-  }
-  return make_pair("fail", "fail");
-}
+};
 int main() {
-#ifndef ONLINE_JUDGE
-  ifstream cin("coliziune.in");
-  ofstream cout("coliziune.out");
-#endif
+  ifstream fin("coliziune.in");
+  ofstream fout("coliziune.out");
   srand(time(NULL));
-  int T; cin >> T;
-  while(T--) {
-    int N, B, M; cin >> N >> M >> B;
-    kBits = min(N, 55);
-    pair <string, string> answer = solve(N, B, M);
+  int T; T = 1;
 
-    //now make the size good
-    while(answer.first.size() < (size_t)N) {
-      answer.first += "0";
-    }
-    while(answer.second.size() < (size_t)N) {
-      answer.second += "0";
-    }
-    cout << answer.first << " " << answer.second << "\n";
+  assert (1 <= T && T <= 10);
+
+  while(T--) {
+    ll B, M; fin >> M >> B;
+
+    assert(4 <= M && M <= 1e14);
+    assert(2 <= B && B <= M - 2);
+
+    Task TT(M, B);
+    pair <string, string> ret = TT.solve();
+    reverse(ret.first.begin(), ret.first.end());
+    reverse(ret.second.begin(), ret.second.end());
+    fout << ret.first << " " << ret.second << "\n";
   }
   return 0;
 }
