@@ -51,8 +51,7 @@ void solve() {
 }
 
 int main() {
-    int nTests;
-    fin >> nTests;
+    int nTests = 1;
 
     for (int i=0; i<nTests; i++) {
         solve();
