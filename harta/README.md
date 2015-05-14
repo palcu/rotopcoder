@@ -2,7 +2,7 @@
 Marcel vinde telefoane cu un nou joc, un spirit se deplaseaza pe o matrice cu NxM camere, 
 se poate trece dintr-o cameră în alta pe orizontală și pe verticală, în plus camerele de pe prima 
 linie sunt legate de cele de pe ultima linie, iar camerele de prima coloană sunt legate de cele de pe ultima coloană.
-În fiecare cameră există o carte de joc, carțile au rangurile {2, 3, 4, 5, 6, 7, 8, 9, t, j, q, a} 
+În fiecare cameră există o carte de joc, carțile au rangurile {2, 3, 4, 5, 6, 7, 8, 9, t, j, q, k, a} 
 și culorile {c, h, d, s}, Marcel îți arată K cărți speciale, scopul jocului e să ajungi de la portalul 
 de intrare de coordonate x1 și y1 la portalul de ieșire de coordonate x2 și y2 cu numar minim de pași știind că
 spiritul ramăne blocat daca ajunge într-o cameră cu o carte specială, 
