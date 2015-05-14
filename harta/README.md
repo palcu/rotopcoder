@@ -9,19 +9,20 @@ spiritul ramăne blocat daca ajunge într-o cameră cu o carte specială,
 iar spiritul trebuie să treacă prin fiecare culoare cel puțin o data.
 
 #Date de intare
-Pe prima linie sunt 3 numere N, M, K
-Pe a doua linie sunt cele K cărți speciale.
-Pe următoarele N linii sunt câte M cărți.
-Pe ultimele 2 linii sunt coordonatele portalelor x1 y1 și x2 y2.
+Pe prima linie sunt 3 numere N, M, K. 
+Pe a doua linie sunt cele K cărți speciale. 
+Pe următoarele N linii sunt câte M cărți. 
+Pe ultimele 2 linii sunt coordonatele portalelor x1 y1 și x2 y2. 
 
 # Date de ieșire
 În fișierul de ieșire se v-a afișa un singur număr, numărul minim de pași dacă
 există un drum valid, -1 în caz contrar.
 
-1 <= N, M <= 1000
-0 <= K <= 52
-Pentru 20% din teste N, M <= 20
-Pentrul alte 20% din teste numarul minim de pasi e cel mult 10.
+Restricții 
+1 <= N, M <= 1000 
+0 <= K <= 52 
+Pentru 20% din teste N, M <= 20. 
+Pentrul alte 20% din teste numarul minim de pasi e cel mult 10. 
 
 harta.in
 ```
