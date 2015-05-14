@@ -46,7 +46,7 @@ class Solver {
      return x;
    }
    pair <string, string> _compute_result() {
-     vector <vector<int>> trial_values;
+     vector <vector<int> > trial_values;
      for (int i = 0; i < (1 << kBits); ++i) {
        vector <int> trial(kBits);
        for (int b = 0; b < kBits; ++b) {
