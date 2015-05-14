@@ -6,6 +6,7 @@
 #include <vector>
 #include <random>
 #include <queue>
+#include <sstream>
 
 #include <cstring>
 
@@ -97,6 +98,24 @@ int solve(int N, int M, int K, pair<int,int> source, pair<int,int> destination,
     return bfs(source, destination, world, badCards);
 }
 
+void readTest(int& N, int& M, int& K, pair<int,int>& source, pair<int,int>& destination,
+            vector< vector<string> >& A, vector<string>& B, istream& in) {
+    in >> N >> M >> K;
+    in.get();
+    A.resize(N, vector<string>(M));
+    B.resize(K);
+    for (int i = 0; i < K; i++) {
+        in >> B[i];
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            in >> A[i][j];
+        }
+    }
+    in >> source.first >> source.second;
+    in >> destination.first >> destination.second;
+}
+
 void printTest(int N, int M, int K, pair<int,int> source, pair<int,int> destination,
             vector< vector<string> >& A, vector<string>& B, ostream& out) {
 
@@ -127,9 +146,9 @@ void generate() {
     for (int i = 1; i <= t; i++) {
         int N, M, K;
         pair<int,int> src, dest;
-        N = 1000;
-        M = 1000;
-        K = dist(mt) % 52 + 1;
+        N = dist(mt) % 500 + 501;
+        M = dist(mt) % 500 + 501;
+        K = dist(mt) % 53 ;
         vector<int> cards(52);
         for (int j = 0; j < 52; j++) {
             cards[j] = j;
@@ -149,12 +168,36 @@ void generate() {
         src = make_pair(dist(mt) % N + 1, dist(mt) % M + 1);
         dest = make_pair(dist(mt) % N + 1, dist(mt) % M + 1); 
         int ans = solve(N, M, K, src, dest, A, B);
-        cout << "Test Case # " << i << " : " << ans << "\n";
-        //printTest(N, M, K, src, dest, A, B, out);
+        if (ans != -1 && ans > 500)  { 
+            cout << "Test Case # " << i << " : " << ans << "\n";
+            printTest(N, M, K, src, dest, A, B, out);
+        }
     }
 }
 
+void buildTests(int testCount,const int& firstIndex) {
+    int t;
+    ifstream cin("tests.txt");
+    cin >> t;
+    for (int i = 0; i < testCount; i++) {
+        ostringstream oss;
+        oss << (firstIndex + i);
+        ofstream input("tests/test" + oss.str() + ".in");
+        ofstream output("tests/test" + oss.str() + ".out");
+        int N, M, K;
+        vector< vector<string> > A;
+        vector<string> B;
+        pair<int,int> source, destination;
+        readTest(N, M, K, source, destination, A, B, cin);
+        int ans = solve(N, M, K, source, destination, A, B);
+        printTest(N, M, K, source, destination, A, B, input);
+        output << ans;
+    }
+}
+
+
 int main() {
     generate();
+    //buildTests(8, 9 );
     return 0;
 }

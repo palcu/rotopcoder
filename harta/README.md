@@ -18,6 +18,11 @@ Pe ultimele 2 linii sunt coordonatele portalelor x1 y1 și x2 y2.
 În fișierul de ieșire se v-a afișa un singur număr, numărul minim de pași dacă
 există un drum valid, -1 în caz contrar.
 
+1 <= N, M <= 1000
+0 <= K <= 52
+Pentru 20% din teste N, M <= 20
+Pentrul alte 20% din teste numarul minim de pasi e cel mult 10.
+
 harta.in
 ```
 4 4 3
