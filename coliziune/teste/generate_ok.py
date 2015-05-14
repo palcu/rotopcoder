@@ -3,7 +3,7 @@ from sh import cp, rm
 import sh
 import os
 
-SURSA_CPP = 'medie.cpp'
+SURSA_CPP = 'main.cpp'
 PROBLEMA = 'coliziune'
 
 cp('../' + SURSA_CPP, '.')
