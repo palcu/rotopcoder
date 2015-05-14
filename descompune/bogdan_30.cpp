@@ -1,7 +1,7 @@
 /*
   Bogdan Tirca
   Problema Descompune
-  Complexitate: O(PROP_LEN * WORD_LEN * N)
+  Complexitate: O(N^(PROP_LEN / WORD_LEN))
 */
 #include <iostream>
 #include <fstream>
@@ -15,7 +15,7 @@ using namespace std;
 #define WORD_LEN 50
 
 // Optimisations
-#define OPT1 true
+#define OPT1 false
 
 string prop;
 int n;
@@ -25,8 +25,6 @@ int backSol[PROP_LEN];
 
 int minCost;
 vector <string> words;
-
-// ofstream fout("descompune.out");
 
 void read() {
   string cuv;
