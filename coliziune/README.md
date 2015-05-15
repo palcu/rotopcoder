@@ -66,4 +66,4 @@ main - 100
 
 ## Limite
 Memorie 4MB
-Timp 5s
+Timp 6s
