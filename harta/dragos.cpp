@@ -48,6 +48,31 @@ bool is_bad(pair <int, int> pos) {
   }
   return false;
 }
+bool is_card(string card) {
+  if (card.size() != 2) {
+    return false;
+  }
+
+  bool ok = false;
+  vector <char> try3{'c', 'h', 'd', 's'};
+  for (auto t: try3) {
+    if (card[1] == t) {
+      ok = true;
+    }
+  }
+  if (ok == false) {
+    return false;
+  }
+
+  ok = false;
+  vector <char> try2{'2', '3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k', 'a'};
+  for (auto t: try2) {
+    if (card[0] == t) {
+      ok = true;
+    }
+  }
+  return ok;
+}
 int main() {
   ifstream cin("harta.in");
   ofstream cout("harta.out");
@@ -64,11 +89,14 @@ int main() {
 
   for (int i = 0; i < K; ++i) {
     cin >> sp_cards[i];
+    assert(sp_cards[i].size() == 2);
+    assert(is_card(sp_cards[i]) == true);
   }
 
   for (int i = 0; i < N; ++i) {
     for (int j = 0; j < M; ++j) {
       cin >> matrix[i][j];
+      assert(is_card(matrix[i][j]) == true);
     }
   }
 
