@@ -12,7 +12,7 @@
 using namespace std;
 
 #define INF (1 << 30)
-#define PROP_LEN 1001
+#define PROP_LEN 100001
 #define WORD_LEN 50
 
 string prop;
@@ -79,4 +79,5 @@ int main() {
   read();
   solve();
   write();
+  return 0;
 }

@@ -6,13 +6,12 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-#include <map>
 #include <vector>
 
 using namespace std;
 
 #define INF (1 << 30)
-#define PROP_LEN 1001
+#define PROP_LEN 100001
 #define WORD_LEN 50
 
 string prop;
@@ -47,19 +46,21 @@ void write() {
   }
 }
 
+bool matchEnd(string &word, int right) {
+  int r1 = right, r2 = word.length() - 1;
+  for ( ;prop[r1] == word[r2] && r1 >= 0 && r2 >= 0; --r1, --r2);
+  return (r2 == -1);
+}
+
 void solve() {
   string word;
-  map<string, int>::iterator it;
   for (int right = 0; right < prop.length(); ++right) {
     dp[right + 1] = INF;
-    for (auto &word : dict) {
+    for (int it = 0; it < dict.size(); ++it) {
+      pair<string, int> &word = dict[it];
       // Verifica daca 'word' se potriveste la capatul propozitiei
-      int r1 = right, r2 = word.first.length() - 1;
-      for ( ;prop[r1] == word.first[r2] && r1 >= 0 && r2 >= 0; --r1, --r2);
-      bool match = (r2 == -1);
-
-      int left = r1 + 1;
-      if (match && dp[left] + word.second < dp[right + 1]) {
+      int left = right - word.first.length() + 1;
+      if (matchEnd(word.first, right) && dp[left] + word.second < dp[right + 1]) {
         dp[right + 1] = dp[left] + word.second;
         back[right + 1] = left;
       }
@@ -83,4 +84,5 @@ int main() {
   read();
   solve();
   write();
+  return 0;
 }
