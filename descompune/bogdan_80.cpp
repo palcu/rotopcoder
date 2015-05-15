@@ -1,7 +1,7 @@
 /*
   Bogdan Tirca
   Problema Descompune
-  Complexitate: O(N^(PROP_LEN / WORD_LEN))
+  Complexitate: O(PROP_LEN * WORD_LEN * N)
 */
 #include <iostream>
 #include <fstream>
@@ -14,14 +14,10 @@ using namespace std;
 #define PROP_LEN 100001
 #define WORD_LEN 50
 
-// Optimisations
-#define OPT1 false
-
 string prop;
 int n;
 vector <pair <string, int> > dict;
 int dp[PROP_LEN], back[PROP_LEN];
-int backSol[PROP_LEN];
 
 int minCost;
 vector <string> words;
@@ -56,41 +52,27 @@ bool matchEnd(string &word, int right) {
   return (r2 == -1);
 }
 
-void backt(int propPos) {
-	if (propPos == prop.length() - 1) {
-		// Solutie
-		if (minCost > dp[prop.length()]) {
-			minCost = dp[prop.length()];
-			memcpy(backSol, back, sizeof(int) * PROP_LEN);
-		}
-	} else {
-	  for (int it = 0; it < dict.size(); ++it) {
-      pair<string, int> &word = dict[it];
-	  	int right = propPos + word.first.length();
-	  	int left = propPos + 1;
-	  	if (right < prop.length() && matchEnd(word.first, right)) {
-	  		if (OPT1 && dp[left] + word.second < dp[right + 1] || !OPT1) {
-		  		dp[right + 1] = dp[left] + word.second;
-		  		back[right + 1] = left;
-		  		backt(right);
-		  	}
-	  	}
-	  }
-	}
-}
-
 void solve() {
-	minCost = INF;
-	for (int right = 1; right <= prop.length(); ++right) {
-    dp[right] = INF;
+  string word;
+  for (int right = 0; right < prop.length(); ++right) {
+    dp[right + 1] = INF;
+    for (int it = 0; it < dict.size(); ++it) {
+      pair<string, int> &word = dict[it];
+      // Verifica daca 'word' se potriveste la capatul propozitiei
+      int left = right - word.first.length() + 1;
+      if (matchEnd(word.first, right) && dp[left] + word.second < dp[right + 1]) {
+        dp[right + 1] = dp[left] + word.second;
+        back[right + 1] = left;
+      }
+    }
+    word.clear();
   }
-  
-  backt(-1);
 
   // Reconstituim solutia de cost minim
+  minCost = dp[prop.length()];
   if (minCost != INF) {
     int left, right = prop.length();
-    while ((left = backSol[right]) != 0) {
+    while ((left = back[right]) != 0) {
       words.push_back(prop.substr(left, right - left));
       right = left;
     }

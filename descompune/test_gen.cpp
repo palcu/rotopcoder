@@ -7,13 +7,13 @@
 
 using namespace std;
 
-#define PROP_LEN 24
-#define WORD_LEN 6
-#define SAME_LET_PROB 3
-#define MIN_LEVELS 2
-#define MAX_LEVELS 5
-#define MAX_NR_WORDS 40
-#define RAND_WORDS_PERC 5
+#define PROP_LEN 999
+#define WORD_LEN 20
+#define SAME_LET_PROB 5
+#define MIN_LEVELS 20
+#define MAX_LEVELS 30
+#define MAX_NR_WORDS 998
+#define RAND_WORDS_PERC 2
 
 string prop;
 int n;
