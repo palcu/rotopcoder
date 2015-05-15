@@ -54,6 +54,8 @@ pair< vector<string>, int> solve(const string& s,
 }
 
 int main() {
+    ifstream cin("descompune.in");
+    ofstream cout("descompune.out");
     string s;
     vector< pair<string, int> > d;
     getline(cin, s);
