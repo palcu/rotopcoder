@@ -67,3 +67,4 @@ main - 100
 ## Limite
 Memorie 4MB
 Timp 6s
+Masina virtuala are 512RAM si un core de 1,8 GhZ de i5.
