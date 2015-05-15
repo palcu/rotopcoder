@@ -26,7 +26,7 @@ int main() {
 
     sol.push_back(s[s.size()-1]);
     for (int i=s.size()-2; i>=0; i--) {
-        if (sol[0] > s[i]) {
+        if (sol[0] >= s[i]) {
             sol.push_front(s[i]);
         } else {
             sol.push_back(s[i]);
