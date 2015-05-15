@@ -1,0 +1,56 @@
+\begin{problem}{Harta}
+{harta.in}{harta.out}
+{6 secunde} {128 megabytes (16 megabytes stiv\u{a})}{}
+
+Marcel vinde telefoane cu un nou joc, un spirit se deplaseaza pe o matrice cu $NxM$ camere, se poate trece dintr-o camer\u{a} \^{i}n alta pe orizontal\u{a} \c{s}i pe vertical\u{a}, \^{i}n plus camerele de pe prima linie sunt legate de cele de pe ultima linie, iar camerele de prima coloan\u{a} sunt legate de cele de pe ultima coloan\u{a}.
+
+\^{I}n fiecare camer\u{a} exist\u{a} o carte de joc, car\c{t}ile au rangurile ${2, 3, 4, 5, 6, 7, 8, 9, t, j, q, k, a}$ \c{s}i culorile ${c, h, d, s}$. Marcel \^{i}\c{t}i arat\u{a} $K$ c\u{a}r\c{t}i speciale, scopul jocului e s\u{a} ajungi de la portalul de intrare de coordonate $x_1$ \c{s}i $y_1$ la portalul de ie\c{s}ire de coordonate $x_2$ \c{s}i $y_2$ cu num\u{a}r minim de pa\c{s}i, \c{s}tiind c\u{a} spiritul ram\^{a}ne blocat dac\u{a} ajunge \^{i}ntr-o camer\u{a} cu o carte special\u{a}, iar spiritul trebuie s\u{a} treac\u{a} prin fiecare culoare cel pu\c{t}in o dat\u{a}.
+
+\InputFile
+\^{I}n fi\c{s}ierul de intrare $harta.in$ pe prima linie se vor afla $3$ numere naturale $N, M, K$, separate prin cate un spatiu. Pe a doua linie sunt cele $K$ c\u{a}r\c{t}i speciale. Pe urm\u{a}toarele $N$ linii sunt c\^{a}te $M$ c\u{a}r\c{t}i. Pe ultimele $2$ linii sunt coordonatele portalelor $(x_1, y_1)$ \c{s}i $(x_2, y_2)$. ($1 \le N \le 1000$, $1 \le M \le 1000$, $1 \le K \le 52$)
+
+\OutputFile
+In fisierul de ie\c{s}ire $harta.out$ se va afi\c{s}a un singur num\u{a}r reprezent\^{a}nd num\u{a}rul minim de pa\c{s}i dac\u{a} exist\u{a} un drum valid, $-1$ \^{i}n caz contrar.
+
+\Notes
+
+Pentru $20 \%$ din teste $N, M <= 20$.
+
+Pentru alte $20 \%$ din teste num\u{a}rul minim de pa\c{s}i e cel mult $10$.
+
+\Examples
+
+\begin{example}
+\exmp{
+4 4 3
+ac 2s 2c
+3c 3d ts td
+kc 2s 2c 2c  
+as 2s 3h 2c
+ad 2s 2c 2c
+1 4
+4 1
+}{%
+-1
+}%
+\exmp{
+4 4 3
+ac 2s 2c
+3c 3d ts td
+kc 2s 2c 2c  
+as as 3h 2c
+ad 2s 2c 2c
+1 4
+4 1
+}{%
+8
+}%
+\end{example}
+
+\Explanations
+
+\^{I}n primul exemplu, spiritul nu poate ajunge la destina\c{t}ie trec\^{a}nd prin fiecare culoare o dat\u{a}.
+
+\^{I}n al doilea exemplu, spiritul ajunge la destina\c{t}ie \^{i}n $8$ pa\c{s}i, drumul fiind: $(4,1)$ -> $(1, 1)$ -> $(2, 1)$ -> $(3, 1)$ -> $(3, 2)$ -> $(3, 3)$ -> $(3, 2)$ -> $(3, 1)$ -> $(4, 1)$
+
+\end{problem}
