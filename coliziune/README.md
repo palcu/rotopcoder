@@ -63,3 +63,7 @@ exp 14 - 50s
 brut2 - 30
 medie - 70
 main - 100
+
+## Limite
+Memorie 4MB
+Timp 5s
