@@ -37,5 +37,5 @@ Cuvintele sunt unice.
 1 <= len(prop) <= 1000
 1 <= len(CUV(i)) <= 50
 1 <= COST(i) <= 1000
-1 <= N <= 30000
+1 <= N <= 100000
 TODO punctaje partiale

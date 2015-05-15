@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <vector>
 
+#include <cstring>
+
 using namespace std;
 
 #define INF (1 << 30)

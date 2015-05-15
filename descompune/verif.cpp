@@ -21,7 +21,7 @@ void read() {
   assert(fin >> prop);
   assert(fin >> n);
 
-  assert(1 <= n && n <= 10000);
+  assert(1 <= n && n <= 100000);
   for (int i = 0; i < n; ++i) {
     assert(fin >> cuv >> cost);
     dict[cuv] = cost;
