@@ -74,7 +74,7 @@ int main() {
   } else if (userWords.size() == 1) {
     writeScore(0, "Lipsa scor sau descompunere");
   }
-  return 0;
+
   // Verifica daca costul exista in fisierul de iesire
   int userCost = atoi((*userWords.rbegin()).c_str());
   if (userCost == 0) {
