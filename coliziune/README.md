@@ -46,14 +46,25 @@ no - exponent
 1 - 1
 2 - 2
 3 - 3
-4 - 4
+4 - 5
 5 - 5
 6 - 6
-7 - 10
+7 - 6
 8 - 10
 9 - 11
-10 - 11
+10 - 11 - șmen
 
 exp 12 - 7s
 exp 13 - 30s
 exp 14 - 50s
+
+## Surse
+
+brut2 - 30
+medie - 70
+main - 100
+
+## Limite
+Memorie 4MB
+Timp 6s
+Masina virtuala are 512RAM si un core de 1,8 GhZ de i5.
