@@ -2,11 +2,11 @@
 {telina.in}{telina.out}
 {0.5 secunde} {16 megabytes}{}
 
-\c{T}elina, sau apium graveolens, este o plant\u{a} din familia apiaceae. Poate atinge o \^{i}n\u{a}l\c{t}ime de p\^{a}n\u{a} la 1 metru. Frunzele sale sunt mari, penat-lobate. Florile sunt mici, de obicei av\^{a}nd culoarea alb\u{a}. Fructul s\u{a}u este achen\u{a}. Poate rezista p\^{a}n\u{a} la temperaturi aproape de 0 grade Celsius. Perioada de \^{i}nflorire este la începutul toamnei. Este o plant\u{a} hidrofil\u{a}. [surs\u{a}: wikipedia.ro]
+\emph{\c{T}elina, sau apium graveolens, este o plant\u{a} din familia apiaceae. Poate atinge o \^{i}n\u{a}l\c{t}ime de p\^{a}n\u{a} la 1 metru. Frunzele sale sunt mari, penat-lobate. Florile sunt mici, de obicei av\^{a}nd culoarea alb\u{a}. Fructul s\u{a}u este achen\u{a}. Poate rezista p\^{a}n\u{a} la temperaturi aproape de 0 grade Celsius. Perioada de \^{i}nflorire este la începutul toamnei. Este o plant\u{a} hidrofil\u{a}.} [surs\u{a}: wikipedia.ro]
 
 Se d\u{a} un \c{s}ir de $N$ caractere $S_1S_2 \dots S_N$. \c{T}elina cite\c{s}te (poate citi!) acest \c{s}ir din dreapta spre st\^{a}nga, \^{i}ncep\^{a}nd cu caracterul de pe pozi\c{t}ia N \c{s}i termin\^{a}nd cu cel de pe pozi\c{t}ia $1$.
 
-Pe m\u{a}sur\u{a} ce aceasta parcurge caractere, le introduce \^{i}ntr-o stiv\u{a} $T$ (ini\c{t}ial vid\u{a}). \^{I}n momentul \^{i}n care cite\c{s}te caracterul $A_{N-i + 1}$ (la pasul $i$) \^{i}l introduce \^{i}n v\^{a}rful stivei $T$. Inainte de citi caracterul de la pasul $i+1$ \c{t}elina poate inversa toate caracterele din stiv\u{a} sau continu\u{a} la pasul urm\u{a}tor.
+Pe m\u{a}sur\u{a} ce aceasta parcurge caractere, le introduce \^{i}ntr-o stiv\u{a} $T$ (ini\c{t}ial vid\u{a}). \^{I}n momentul \^{i}n care cite\c{s}te caracterul $A_{N-i + 1}$ (la pasul $i$) \^{i}l introduce \^{i}n v\^{a}rful stivei $T$. Inainte de citi caracterul de la pasul $i+1$ \c{t}elina poate inversa toate caracterele din stiv\u{a} sau poate continua la pasul urm\u{a}tor.
 
 \c{T}elina v\u{a} roag\u{a} s\u{a} afla\c{t}i \c{s}irul minim lexicografic ce se poate forma \^{i}n stiva $T$ (primul element fiind in v\^{a}rful stivei iar ultimul element \^{i}n cap\u{a}tul stivei) la finalizarea opera\c{t}iilor de la pasul $N$.
 
@@ -19,25 +19,28 @@ Pe m\u{a}sur\u{a} ce aceasta parcurge caractere, le introduce \^{i}ntr-o stiv\u{
 
 \^{I}n fişierul de ie\c{s}ire $telina.out$ va con\c{t}ine pe prima linie \c{s}irul minim lexicografic ce se poate ob\c{t}ine \^{i}n $T$ aplic\^{a}nd opera\c{t}iile descrise anterior.
 
-\Constraints
-$1 \le N \le 10^{6}$.
-
-$S$ con\c{t}ine doar caractere mici ale alfabetului englez.
+\Notes
+\begin{itemize}
+	\setlength{\itemsep}{1pt}
+  	\setlength{\parskip}{0pt}
+  	\setlength{\parsep}{0pt}
+	\item $1 \le N \le 10^{6}$.
+	\item $S$ con\c{t}ine doar caractere mici ale alfabetului englez.
+	\item Pentru $15 \%$ din teste $1 \le N \le 15$.
+\end{itemize}
 
 \Example
 
 \begin{example}
 \exmp{
-telina
+telinab
 }{%
-anilet
+abnilet
 }%
 \end{example}
 
 \Explanation
 
-La pasul $1$, $T = a$. Dup\u{a} citirea caracterului $n$ stiva $T = na$. \^{I}nainte de a termina pasul $2$ \c{t}elina \^{i}ntoarce toate elementele din $T$ iar acum $T = an$.
-
-Dup\u{a} cei $6$ pa\c{s}i $T = anilet$.
+La pasul $1$, $T = b$. Dup\u{a} citirea caracterului $a$ stiva $T = ab$. \^{I}nainte de a termina pasul $2$ \c{t}elina \^{i}ntoarce toate elementele din $T$ iar acum $T = ba$. La pa\c{s}ii urm\u{a}tori $T = nab$, $T = nba$, $T = inba$, $T = linba$, $T = elinba$, $T = telinba$. La ultimul pas se inverseaz\u{a} toate caracterele iar $T = abnilet$.
 
 \end{problem}

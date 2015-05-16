@@ -2,10 +2,10 @@
 {coliziune.in}{coliziune.out}
 {5 secunde} {4 megabytes}{}
 
-Agen\c{t}ia de securitate na\c{t}ional\u{a} urm\u{a}re\c{s}te \^{i}ndeaproape concursul RoTopCoder. Aceasta a descoperit c\u{a} \^{i}n cadrul concursului se afl\u{a} concuren\c{t}i care au reu\c{s}it s\u{a} identifice un algoritm eficient pentru determinarea coliziunilor unei func\c{t}ii $\mathcal{H}$.
+Servicul de Telecomunica\c{t}ii Speciale urm\u{a}re\c{s}te \^{i}ndeaproape concursul RoTopCoder. Acesta a descoperit c\u{a} \^{i}n cadrul concursului se afl\u{a} concuren\c{t}i care au reu\c{s}it s\u{a} identifice un algoritm eficient pentru determinarea coliziunilor unei func\c{t}ii $\mathcal{H}$.
 O coliziune reprezint\u{a} $2$ valori $x, y$ pentru care $\mathcal{H}(x) = \mathcal{H}(y)$.
 
-Este un lucru binecunoscut \^{i}n criptologie (\c{s}tiin\c{t}\u{a} ce se ocup\u{a} cu studiul codurilor) c\u{a} aceast\u{a} problem\u{a} este una dificil\u{a} (pentru o func\c{t}ie $\mathcal{H}$ bine aleas\u{a}).
+Este un lucru binecunoscut \^{i}n criptografie (studiul tehnicilor pentru comunica\c{t}ii securizate) c\u{a} aceast\u{a} problem\u{a} este una dificil\u{a} (pentru o func\c{t}ie $\mathcal{H}$ bine aleas\u{a}).
 
 Fie o func\c{t}ie $\mathcal{H}$ ce primeste ca date intrare \c{s}iruri de lungime variabil\u{a} contin\^{a}nd doar cifre de 0 \c{s}i 1 (\c{s}ir binar). Consider\u{a}m un \c{s}ir binar $S$ de lungime $N$ pentru care primul caracter se afl\u{a} pe pozi\c{t}ia $1$ (numerotarea cifrelor incepe de la $1$).
 
@@ -15,19 +15,24 @@ $\mathcal{H}$ este calculat\u{a} \^{i}n felul urm\u{a}tor:
 \end{equation}
 unde cu $x \mod M$ am notat restul \^{i}mp\u{a}r\c{t}irii lui $x$ la $M$.
 
-D\^{a}ndu-se $2$ numere naturale $B$ \c{s}i $M$, se cere sa g\u{a}si\c{t}i $2$ \c{s}iruri binare diferite $x, y$, astfel \^{i}nc\^{a}t $\mathcal{H}(x) = \mathcal{H}(y)$.
+D\^{a}ndu-se $2$ numere naturale $B$ \c{s}i $M$, se cere sa g\u{a}si\c{t}i $2$ \c{s}iruri binare diferite $x$ si $y$, astfel \^{i}nc\^{a}t $\mathcal{H}(x) = \mathcal{H}(y)$.
 
 \InputFile
 
-\^{I}n fi\c{s}ierul de intrare $coliziune.in$ pe prima linie se vor afla $2$ numere întregi $M$ si $B$ (cu semnifica\c{t}ia descris\u{a} \^{i}n enun\c{t}) separate prin spa\c{t}iu. ($2 \le B \le M-2$, $4 \le M \le 10^{14}$)
+\^{I}n fi\c{s}ierul de intrare $coliziune.in$ pe prima linie se vor afla $2$ numere întregi $M$ si $B$ (cu semnifica\c{t}ia descris\u{a} \^{i}n enun\c{t}) separate prin spa\c{t}iu. ($2 \le B \le M-2$, $4 \le M \le 5 * 10^{10}$)
 
 \OutputFile
 
 În fişierul de ie\c{s}ire $coliziune.out$ se vor afla $2$ \c{s}iruri binare $x, y$ separate printr-un spa\c{t}iu astfel \^{i}nc\^a{t} $\mathcal{H}(x) = \mathcal{H}(y)$.
 
-\Note
-
-Dac\u{a} sunt mai multe solu\c{t}ii atunci pute\c{t}i afi\c{s}a oricare dintre ele at\^{a}t timp c\^{a}t lungimea \c{s}irului $x$, respectiv lungimea lui $y$ nu dep\u{a}\c{s}e\c{s}te $10^6$.
+\Notes
+\begin{itemize}
+	\setlength{\itemsep}{1pt}
+  	\setlength{\parskip}{0pt}
+  	\setlength{\parsep}{0pt}
+	\item Dac\u{a} sunt mai multe solu\c{t}ii atunci pute\c{t}i afi\c{s}a oricare dintre ele at\^{a}t timp c\^{a}t lungimea \c{s}irului $x$, respectiv lungimea lui $y$ nu dep\u{a}\c{s}e\c{s}te $10^6$.
+	\item Pentru $30 \%$ din teste $1 \le M \le 900$. Pentru $60 \%$ din teste $1 \le M \le 10^6$.
+\end{itemize}
 
 \Examples
 
@@ -46,6 +51,6 @@ Dac\u{a} sunt mai multe solu\c{t}ii atunci pute\c{t}i afi\c{s}a oricare dintre e
 
 \Explanations
 
-Se observ\u{a} c\u{a} pentru cel de-al $2$-lea exemplu $\mathcal{H}(1100) = 2$ \c{s}i $\mathcal{H}(1110) = 2$. Deci am g\u{a}sit $2$ \c{s}iruri binare diferite $1100$, $1110$ pentru care func\c{t}ia \^{i}ntoarce acelea\c{s}i rezultate.
+Se observ\u{a} c\u{a} pentru cel de-al $2$-lea exemplu $\mathcal{H}(1100) = 2$ \c{s}i $\mathcal{H}(1110) = 2$. Deci am g\u{a}sit $2$ \c{s}iruri binare diferite $1100$, $1110$ pentru care func\c{t}ia \^{i}ntoarce acela\c{s} rezultat.
 
 \end{problem}
